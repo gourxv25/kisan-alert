@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     TWILIO_AUTH_TOKEN: str = ""
     TWILIO_WHATSAPP_NUMBER: str = ""
     AGROMONITORING_API_KEY: str = ""
+    AGROMONITORING_POLYGON_ID: str = ""  # Default polygon for weather lookups
 
     model_config = SettingsConfigDict(
         env_file=".env",
