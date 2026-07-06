@@ -6,3 +6,4 @@ google-generativeai
 twilio
 supabase
 apscheduler
+firebase-admin

@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     TWILIO_AUTH_TOKEN: str = ""
     TWILIO_WHATSAPP_NUMBER: str = ""
     AGROMONITORING_API_KEY: str = ""
+    FIREBASE_PROJECT_ID: str = ""
+    FIREBASE_CREDENTIALS_PATH: str = ""
 
     model_config = SettingsConfigDict(
         env_file=".env",
