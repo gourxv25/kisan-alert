@@ -1,0 +1,194 @@
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Testing
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Type Checkers
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Linting
+.ruff_cache/
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ==========================================
+# FastAPI
+# ==========================================
+instance/
+*.db
+*.sqlite3
+
+# ==========================================
+# Node / React
+# ==========================================
+node_modules/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build Output
+dist/
+build/
+
+# Vite
+.vite/
+
+# Coverage
+coverage/
+
+# ==========================================
+# Firebase
+# ==========================================
+.firebase/
+firebase-debug.log
+.firebaserc.local
+
+# ==========================================
+# Google Cloud
+# ==========================================
+*.json
+!package.json
+!tsconfig.json
+
+# Service Account Keys
+service-account.json
+firebase-adminsdk*.json
+gcp-key.json
+credentials.json
+
+# ==========================================
+# Environment Variables
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# IDE
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+.idea/
+*.iml
+
+# ==========================================
+# macOS
+# ==========================================
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# Linux
+# ==========================================
+*~
+
+# ==========================================
+# Windows
+# ==========================================
+ehthumbs.db
+Icon?
+$RECYCLE.BIN/
+
+# ==========================================
+# Temporary Files
+# ==========================================
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ==========================================
+# Archives
+# ==========================================
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.pid
+
+# ==========================================
+# Cache
+# ==========================================
+.cache/
+.cache-loader/
+.parcel-cache/
+
+# ==========================================
+# Terraform (Future Deployment)
+# ==========================================
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# ==========================================
+# Docker
+# ==========================================
+docker-compose.override.yml
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+*.bak
+*.orig
+
+# ==========================================
+# AI / Local Files
+# ==========================================
+.cursor/
+.windsurf/
+.claude/
+.history/
+
+# ==========================================
+# Local Uploads
+# ==========================================
+uploads/
+temp/
+tmp/
