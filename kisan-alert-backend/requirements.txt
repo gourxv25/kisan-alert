@@ -2,7 +2,7 @@ fastapi
 uvicorn
 pydantic-settings
 httpx
-google-generativeai
+google-genai
 twilio
 supabase
 apscheduler

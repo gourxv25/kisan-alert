@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import whatsapp_webhook, escalations
+from app.routers import whatsapp_webhook, escalations, recommend
 
 app = FastAPI(
     title="Kisan Alert Backend",
@@ -22,6 +22,7 @@ app.add_middleware(
 # Include API Routers
 app.include_router(whatsapp_webhook.router)
 app.include_router(escalations.router)
+app.include_router(recommend.router)
 
 @app.get("/health", tags=["Health"])
 def health_check():
