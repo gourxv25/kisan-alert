@@ -12,6 +12,11 @@ class Settings(BaseSettings):
     FIREBASE_PROJECT_ID: str = ""
     FIREBASE_CREDENTIALS_PATH: str = ""
 
+    # Scheduler — drought alert threshold.
+    # Plots with forecast rainfall below this value (mm over next 5 days) will
+    # receive a WhatsApp irrigation advisory.
+    LOW_RAIN_THRESHOLD_MM: float = 10.0
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

@@ -1,10 +1,11 @@
-fastapi
+fastapi>=0.115.2
 uvicorn
 pydantic-settings
-httpx
+httpx[http2]==0.28.1
 google-genai
 twilio
 supabase
-apscheduler
+apscheduler>=3.10
 firebase-admin
 python-multipart
+starlette>=0.40.0
