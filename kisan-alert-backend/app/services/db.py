@@ -1,5 +1,6 @@
 import logging
 import os
+from datetime import datetime, timezone
 import firebase_admin
 from firebase_admin import credentials, firestore
 from app.config import settings
@@ -13,6 +14,13 @@ try:
         cred_path = settings.FIREBASE_CREDENTIALS_PATH
         project_id = settings.FIREBASE_PROJECT_ID
         
+        print("="*50)
+        print("Project ID:", settings.FIREBASE_PROJECT_ID)
+        print("Credential Path:", repr(settings.FIREBASE_CREDENTIALS_PATH))
+        print("Exists:", os.path.exists(settings.FIREBASE_CREDENTIALS_PATH))
+        print("="*50)
+
+
         if cred_path and os.path.exists(cred_path):
             logger.info(f"Initializing Firebase Admin with credentials from {cred_path}")
             cred = credentials.Certificate(cred_path)
@@ -89,8 +97,10 @@ def _create_farmer_transaction(transaction, farmers_ref, phone, name, village_id
     }
     
     transaction.set(new_doc_ref, data)
-    data["id"] = new_doc_ref.id
-    return data
+    response_data = data.copy()
+    response_data["id"] = new_doc_ref.id
+    response_data["created_at"] = datetime.now(timezone.utc)
+    return response_data
 
 
 def create_farmer(phone: str, name: str, village_id: str, language: str = "te") -> dict | None:
@@ -232,8 +242,10 @@ def create_plot(farmer_id: str, lat: float, lng: float, crop_current: str, soil_
         }
         
         new_doc_ref.set(data)
-        data["id"] = new_doc_ref.id
-        return data
+        response_data = data.copy()
+        response_data["id"] = new_doc_ref.id
+        response_data["created_at"] = datetime.now(timezone.utc)
+        return response_data
     except Exception as e:
         logger.error(f"Firestore error in create_plot for farmer {farmer_id}: {e}", exc_info=True)
         return None
@@ -330,8 +342,10 @@ def create_escalation(plot_id: str, photo_url: str, ai_diagnosis: str) -> dict |
         }
 
         new_doc_ref.set(data)
-        data["id"] = new_doc_ref.id
-        return data
+        response_data = data.copy()
+        response_data["id"] = new_doc_ref.id
+        response_data["created_at"] = datetime.now(timezone.utc)
+        return response_data
     except Exception as e:
         logger.error(f"Firestore error in create_escalation for plot {plot_id}: {e}", exc_info=True)
         return None

@@ -9,9 +9,10 @@ Covers:
 import sys
 import unittest
 from unittest.mock import AsyncMock, MagicMock, patch
-
-backend_path = r"c:\Users\ssr\Desktop\Kisan-Alert\kisan-alert-backend"
-sys.path.insert(0, backend_path)
+from pathlib import Path
+backend_path = str(Path(__file__).resolve().parent.parent)
+if backend_path not in sys.path:
+    sys.path.insert(0, backend_path)
 
 from fastapi.testclient import TestClient
 from app.main import app
@@ -68,6 +69,15 @@ class TestBuildAlertMessage(unittest.TestCase):
 # ── 2. check_and_alert core logic ─────────────────────────────────────────────
 
 class TestCheckAndAlert(unittest.IsolatedAsyncioTestCase):
+
+    def setUp(self):
+        from app.config import settings
+        self._old_threshold = settings.LOW_RAIN_THRESHOLD_MM
+        settings.LOW_RAIN_THRESHOLD_MM = 10.0
+
+    def tearDown(self):
+        from app.config import settings
+        settings.LOW_RAIN_THRESHOLD_MM = self._old_threshold
 
     @patch("app.services.scheduler.send_whatsapp_message")
     @patch("app.services.scheduler.get_farmer_by_id")
